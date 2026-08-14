@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useRef, type MouseEvent } from "react";
 import { useReducedMotion } from "framer-motion";
+
+const HeroSparkles = dynamic(() => import("@/components/three/HeroSparkles"), {
+  ssr: false,
+});
 
 export function HeroBackdrop() {
   const reduce = useReducedMotion();
@@ -35,8 +40,13 @@ export function HeroBackdrop() {
           />
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-green-950 via-green-950/78 to-green-950/15" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-green-950/30" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-green-950/92 via-green-950/55 to-green-950/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-green-950/70 via-transparent to-green-950/25" />
+      {!reduce && (
+        <div className="pointer-events-none absolute inset-0 z-[1]">
+          <HeroSparkles />
+        </div>
+      )}
     </div>
   );
 }

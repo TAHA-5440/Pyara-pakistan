@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { PageHero } from "@/components/ui/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { site, waLink } from "@/data/site";
+import { SocialLinks } from "@/components/brand/SocialLinks";
 import { MessageCircle, Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -49,6 +50,8 @@ export default function ContactPage() {
               <Clock size={18} className="text-gold" /> {site.hours}
             </p>
           </div>
+          <p className="mt-8 text-xs uppercase tracking-[0.2em] text-gold">Follow Pyara Pakistan</p>
+          <SocialLinks className="mt-4" />
           <p className="mt-10 text-sm text-muted">
             Free audit of your current pages. Clear packages. No jargon.
           </p>

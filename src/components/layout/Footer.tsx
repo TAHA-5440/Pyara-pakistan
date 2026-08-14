@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
+import { SocialLinks } from "@/components/brand/SocialLinks";
 import { services } from "@/data/services";
 import { packages } from "@/data/packages";
 import { site, waLink } from "@/data/site";
@@ -13,6 +14,7 @@ export function Footer() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {site.tagline} Offline businesses, online customers — across Pakistan.
           </p>
+          <SocialLinks className="mt-5" />
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-gold">Services</p>

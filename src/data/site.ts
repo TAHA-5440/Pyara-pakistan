@@ -20,13 +20,19 @@ export const site = {
     "Quetta",
   ],
   social: {
-    facebook: "#",
-    instagram: "#",
-    tiktok: "#",
-    youtube: "#",
-    linkedin: "#",
+    tiktok: "https://www.tiktok.com/@pyaarpakistan",
+    facebook: "https://www.facebook.com/share/19Y5CKmpfz/",
+    instagram: "https://www.instagram.com/pyaarpakistan",
+    youtube: "https://www.youtube.com/@pyaarapakistan6961",
   },
 } as const;
+
+export const socialLinks = [
+  { name: "TikTok", href: site.social.tiktok },
+  { name: "Facebook", href: site.social.facebook },
+  { name: "Instagram", href: site.social.instagram },
+  { name: "YouTube", href: site.social.youtube },
+] as const;
 
 export function waLink(message?: string) {
   const text = encodeURIComponent(

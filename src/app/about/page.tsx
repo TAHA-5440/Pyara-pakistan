@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { CtaBand } from "@/components/ui/CtaBand";
+import { SocialLinks } from "@/components/brand/SocialLinks";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -52,6 +53,8 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-5 pb-16">
         <p className="text-xs uppercase tracking-[0.25em] text-gold">We serve</p>
         <p className="mt-3 font-serif text-2xl text-cream">{site.cities.join(" · ")}</p>
+        <p className="mt-10 text-xs uppercase tracking-[0.25em] text-gold">Follow us</p>
+        <SocialLinks className="mt-4" />
       </section>
       <CtaBand />
     </>
