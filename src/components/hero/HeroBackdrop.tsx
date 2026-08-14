@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import { useRef, type MouseEvent } from "react";
-import dynamic from "next/dynamic";
 import { useReducedMotion } from "framer-motion";
-
-const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
-  ssr: false,
-});
 
 export function HeroBackdrop() {
   const reduce = useReducedMotion();
@@ -42,11 +37,6 @@ export function HeroBackdrop() {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-green-950 via-green-950/78 to-green-950/15" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-green-950/30" />
-      {!reduce && (
-        <div className="absolute inset-0">
-          <HeroScene />
-        </div>
-      )}
     </div>
   );
 }
