@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green-950: #03150f;
+  --green-900: #06241a;
+  --green-800: #0a3a29;
+  --green-700: #0f5138;
+  --flag: #01411c;
+  --gold: #e0c36a;
+  --gold-2: #c9a227;
+  --gold-deep: #8a6a1f;
+  --cream: #f4ead6;
+  --cream-2: #e7d9b8;
+  --ink: #f6f0e4;
+  --muted: #b9c4ba;
+  --whatsapp: #25d366;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-green-950: var(--green-950);
+  --color-green-900: var(--green-900);
+  --color-green-800: var(--green-800);
+  --color-green-700: var(--green-700);
+  --color-flag: var(--flag);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-gold-deep: var(--gold-deep);
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-whatsapp: var(--whatsapp);
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-cormorant);
+  --font-urdu: var(--font-urdu);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--green-950);
+  color: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  min-height: 100%;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--gold) 45%, transparent);
+  color: #fff;
+}
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-urdu {
+  font-family: var(--font-urdu), serif;
+}
+
+.gold-text {
+  background: linear-gradient(120deg, #f8e7b0 0%, #e0c36a 38%, #fff6d4 52%, #c9a227 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-border {
+  border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+}
+
+.glass {
+  background: color-mix(in oklab, var(--green-900) 72%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in oklab, var(--gold) 18%, white 6%);
+}
+
+.pattern-star {
+  background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 8 L39 28 L58 22 L42 36 L58 50 L39 44 L36 64 L33 44 L14 50 L30 36 L14 22 L33 28 Z' fill='none' stroke='%23e0c36a' stroke-opacity='0.09' stroke-width='0.8'/%3E%3C/svg%3E");
+}
+
+.noise::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+
+.btn-shimmer {
+  background-size: 200% 100%;
+  background-image: linear-gradient(
+    110deg,
+    #c9a227 0%,
+    #f8e7b0 45%,
+    #c9a227 55%,
+    #8a6a1f 100%
+  );
+}
+
+.perspective {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.field {
+  border-radius: 0.9rem;
+  border: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
+  background: rgba(6, 36, 26, 0.7);
+  padding: 0.75rem 0.9rem;
+  color: var(--cream);
+  outline: none;
+  width: 100%;
+}
+
+.field:focus {
+  border-color: color-mix(in oklab, var(--gold) 70%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float,
+  .animate-spin-slow {
+    animation: none;
+  }
 }
