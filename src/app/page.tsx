@@ -1,14 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
-import { useReducedMotion } from "framer-motion";
 import { GoldButton, GhostButton, WhatsAppButton } from "@/components/ui/Buttons";
 import { Reveal } from "@/components/motion/Reveal";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { LeadFlow } from "@/components/ui/LeadFlow";
 import { CtaBand } from "@/components/ui/CtaBand";
+import { HeroBackdrop } from "@/components/hero/HeroBackdrop";
 import { services } from "@/data/services";
 import { packages } from "@/data/packages";
 import { industries } from "@/data/industries";
@@ -16,24 +15,11 @@ import { faqs, outcomes } from "@/data/content";
 import { caseStudies } from "@/data/work";
 import { waLink } from "@/data/site";
 
-const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
-  ssr: false,
-});
-
 export default function HomePage() {
-  const reduce = useReducedMotion();
-
   return (
     <>
       <section className="relative min-h-[100svh] overflow-hidden">
-        <div className="absolute inset-0">
-          {reduce ? (
-            <div className="h-full w-full bg-[radial-gradient(circle_at_70%_40%,#0f5138,transparent_45%),linear-gradient(#03150f,#06241a)]" />
-          ) : (
-            <HeroScene />
-          )}
-        </div>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-green-950 via-green-950/75 to-transparent" />
+        <HeroBackdrop />
         <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-24 pt-28">
           <p className="text-xs uppercase tracking-[0.32em] text-gold">
             Offline business → Online growth
