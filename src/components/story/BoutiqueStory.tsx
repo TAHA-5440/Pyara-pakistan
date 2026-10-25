@@ -38,10 +38,10 @@ export function BoutiqueStory() {
         <div className="story-topline"><span><i /> A PAKISTANI BUSINESS STORY</span><a href="#our-services">Skip to services <ArrowUpRight size={13} /></a></div>
         <div className="story-copy" key={index}>
           <p className="story-eyebrow">{chapter.label}</p><h1>{chapter.title}</h1><p className="story-description">{chapter.text}</p>
+          {(index === 0 || index === 2) && <p className="cinema-reference">Illustrative monthly figures: sales Rs {index === 0 ? "2" : "20"} lakh · expenses Rs 1.9 lakh.</p>}
           <p className="story-note">{chapter.note}</p>
           {index === 3 && <a className="story-button" href={waLink()}>Let’s grow your business <ArrowUpRight size={18} /></a>}
         </div>
-        {(index === 0 || index === 2) && <div className="story-figures cinema-metrics"><div><span>MONTHLY SALES</span><strong>Rs {index === 0 ? "2" : "20"} lakh</strong></div><div><span>MONTHLY EXPENSES</span><strong>Rs 1.9 lakh</strong></div><small>Illustrative business scenario</small></div>}
         <button className="cinema-fullscreen" aria-label="Toggle fullscreen story" onClick={() => {
           const stage = document.documentElement;
           if (document.fullscreenElement) { void document.exitFullscreen().catch(() => {}); }
